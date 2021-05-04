@@ -20,6 +20,7 @@ class TestingConfig(Config):
 
 class LocalConfig(Config):
     DEBUG = True
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///s.db'
 
 
 app_config = {
