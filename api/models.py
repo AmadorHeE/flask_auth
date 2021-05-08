@@ -1,3 +1,4 @@
+from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 from api.db import db, BaseModelMixin
 
@@ -8,6 +9,7 @@ class User(db.Model, BaseModelMixin):
     username = db.Column(db.String(64), unique=True, nullable=False)
     email = db.Column(db.String(64), unique=True, nullable=False)
     password_hash = db.Column(db.String(255), nullable=False)
+    created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
     @property
     def password(self):
